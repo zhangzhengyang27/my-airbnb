@@ -48,7 +48,7 @@ export default class DB {
   // 新增/修改数据库数据
   async updateItem(storeName: string, data: any) {
     console.log(this.db)
-    const store = this.db.getStore([storeName], "readwrite").objectStore(storeName)
+    const store = this.db.transaction([storeName], "readwrite").objectStore(storeName)
     const request = store.put({
       ...data,
       updateTime: new Date().getTime(),
