@@ -16,4 +16,12 @@ export default defineConfig({
             resolvers: [ElementPlusResolver()],
         }),
     ],
+    css: {
+        // css预处理器,路径后面要添加分号;
+        preprocessorOptions: {
+            scss: {
+                additionalData: '@import "@/assets/scss/variable.scss";'
+            }
+        }
+    }
 })
