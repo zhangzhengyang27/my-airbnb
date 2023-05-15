@@ -43,11 +43,11 @@ class Http{
         })
     }
 
-    public httpGet<T>(url:string,params?:T):Promise<T>{
+    public httpRequestGet<T>(url:string,params?:T):Promise<T>{
         return Http.axiosInstance.get(url, { params }).then(res => res.data).catch()
     }
 
-    public httpPost<T>(url: string, params?: T): Promise<T> {
+    public httpRequestPost<T>(url: string, params?: T): Promise<T> {
         return Http.axiosInstance.post(url, { params }).then(res => res.data).catch()
     }
 
