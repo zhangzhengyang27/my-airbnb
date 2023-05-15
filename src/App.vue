@@ -4,7 +4,7 @@
         <button @click="changeLang(en)">英文</button>
         <router-link to="/home">首页</router-link>
         <router-link to="/mine">个人中心</router-link>
-        <router-view />
+        <router-view/>
     </el-config-provider>
 </template>
 
@@ -13,9 +13,16 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
 import en from 'element-plus/lib/locale/lang/en'
 import { ref } from 'vue'
 
-const locale = ref(zhCn)
+import { useI18n } from 'vue-i18n'
+const {locale:localeLanguage}=useI18n()
+
+
+const locale=ref(zhCn)
+
+
 const changeLang = (language: any) => {
-    console.log(language)
     locale.value = language
+    localeLanguage.value=language.name
+    console.log("language", language)
 }
 </script>
